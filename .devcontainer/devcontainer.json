@@ -1,0 +1,25 @@
+{
+  "name": "Ubuntu NoVNC Desktop",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/apt-get:1": {
+      "packages": "xfce4 xfce4-goodies tightvncserver websockify"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "NoVNC Web",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.live-server"
+      ]
+    }
+  },
+  "remoteUser": "codespace"
+}
